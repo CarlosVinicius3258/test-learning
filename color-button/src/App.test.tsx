@@ -5,12 +5,12 @@ test('button has correct initial color', () => {
   render(<App />);
   const button = screen.getByRole('button', {name: 'Change to blue'})
 
-  expect(button).toHaveStyle({backgorundColor: 'red'})
+  expect(button).toHaveStyle({backgrundColor: 'red'})
 })
 
 test('button has correct initial text', () => {
   render(<App />)
-  const button = screen.getByRole('buton', { name: 'Change to blue' })
+  const button = screen.getByRole('button', { name: 'Change to blue' })
   expect(button.textContent).toBe('Change to blue')
 });
 
