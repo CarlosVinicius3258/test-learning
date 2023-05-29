@@ -4,7 +4,10 @@ import './App.css';
 
 function App() {
   return (
-    <div />
+    <div style={ { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px', 
+}}>
+      <button style={ { backgroundColor: 'red', color: 'white', width: 200, height: 40, } } >Change to blue</button>
+    </div>
 
   );
 }
