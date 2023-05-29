@@ -1,0 +1,34 @@
+#Accessibility and Finding Elements
+
+- testing Library recommends finding elements by accessibility handles
+  - Priority:
+    - Accessible To everyone -> queries that reflect the experience of visual/mouse users as well as those that use assistive technology
+      - getByRole
+        - W3C spec for roles
+          - alert
+          - alertdialog
+          - button
+          -  checkbox
+          -  dialog
+          -  grid
+          -  link
+          -  listbox
+          -  menu
+          -  menubar
+          -  menuitem
+          -  menuitemcheckbox
+          -  menuitemradio
+          -  option
+          -  progressbar
+          -  radio
+          -  radiogroup
+          -  
+      - getByLabelText
+      - getByPlaceholderText
+      - getByText
+      - getByDisplayValue
+    - Semantic Queries -> queries that reflect the meaning of the element, rather than its appearance
+      - getByAltText
+      - getByTitle
+    - Test IDs -> queries that are only used for testing
+      - getByTestId
