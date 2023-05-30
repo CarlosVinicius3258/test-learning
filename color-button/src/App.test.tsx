@@ -20,4 +20,15 @@ test('checkbox init', () => {
   expect(checkbox).not.toBeChecked()
 })
 
+test('checkbox disable buton on first click and enables clicking again', ()=> {
+  render(<App /> )
+  const checkbox = screen.getByRole('checkbox')
+  const button = screen.getByRole('button', {name: 'Change to blue'})
+
+  fireEvent.click(checkbox)
+  expect(button).toBeDisabled()
+  fireEvent.click(checkbox)
+  expect(button).toBeEnabled()
+})
+
 
