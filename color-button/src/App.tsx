@@ -17,7 +17,8 @@ function App() {
         style={ { backgroundColor: buttonColor, color: 'white', width: 200, height: 40, } } >
           Change to { newButtonColor }
       </button>
-      <input type='checkbox' checked={checked} onClick={() => setChecked(!checked)} />
+      <input id='disable-button-checkbox' type='checkbox' checked={ checked } onClick={ () => setChecked(!checked) } />
+      <label htmlFor="disable-button-checkbox">Disable Button</label>
     </div>
 
   );

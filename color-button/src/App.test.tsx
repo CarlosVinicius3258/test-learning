@@ -22,7 +22,8 @@ test('checkbox init', () => {
 
 test('checkbox disable buton on first click and enables clicking again', ()=> {
   render(<App /> )
-  const checkbox = screen.getByRole('checkbox')
+  //const checkbox = screen.getByRole('checkbox')
+   const checkbox = screen.getByRole('checkbox', {name: 'Disable Button'})
   const button = screen.getByRole('button', {name: 'Change to blue'})
 
   fireEvent.click(checkbox)
