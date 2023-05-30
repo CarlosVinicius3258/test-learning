@@ -13,5 +13,11 @@ test('button change on click', () => {
   expect(button).toHaveTextContent("Change to red");
 });
 
+test('checkbox init', () => {
+  render(<App />)
+
+  const checkbox = screen.getByRole('checkbox')
+  expect(checkbox).not.toBeChecked()
+})
 
 
