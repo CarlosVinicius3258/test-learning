@@ -9,19 +9,19 @@ function App() {
   const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
   return (
     <div style={ {
-      display: 'flex',flexDirection: 'column', justifyContent: 'center', alignItems: 'start', padding: '20px',
+      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'start', padding: '20px',
     } }>
       <button
-        disabled={checked}
+        disabled={ checked }
         onClick={ () => setButtonColor(newButtonColor) }
-        style={ { backgroundColor: buttonColor, color: 'white', width: 200, height: 40, } } >
-          Change to { newButtonColor }
+        style={ { backgroundColor: checked ? 'gray' : buttonColor, color: 'white', width: 200, height: 40, } } >
+        Change to { newButtonColor }
       </button>
-      <div style={{marginTop: 5}}>
+      <div style={ { marginTop: 5 } }>
         <input id='disable-button-checkbox' type='checkbox' checked={ checked } onClick={ () => setChecked(!checked) } />
         <label htmlFor="disable-button-checkbox">Disable Button</label>
       </div>
-      
+
     </div>
 
   );
