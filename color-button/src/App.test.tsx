@@ -4,14 +4,14 @@ import { replaceCamelWithSpaces } from './App';
 
 test('button change on click', () => {
   render(<App />);
-  const button = screen.getByRole('button', { name: 'Change to blue' });
+  const button = screen.getByRole('button', { name: 'Change to Midnight Blue' });
 
-  expect(button).toHaveStyle({ "background-color": "red" });
+  expect(button).toHaveStyle({ "background-color": "MediumVioletRed" });
 
   fireEvent.click(button);
-  expect(button).toHaveStyle({ 'background-color': 'blue' });
+  expect(button).toHaveStyle({ 'background-color': 'MidnightBlue' });
 
-  expect(button).toHaveTextContent("Change to red");
+  expect(button).toHaveTextContent("Change to Medium Violet Red");
 });
 
 test('checkbox init', () => {
@@ -25,7 +25,7 @@ test('checkbox disable buton on first click and enables clicking again', () => {
   render(<App />);
   //const checkbox = screen.getByRole('checkbox')
   const checkbox = screen.getByRole('checkbox', { name: 'Disable Button' });
-  const button = screen.getByRole('button', { name: 'Change to blue' });
+  const button = screen.getByRole('button', { name: 'Change to Midnight Blue' });
 
   fireEvent.click(checkbox);
   expect(button).toBeDisabled();
@@ -35,18 +35,18 @@ test('checkbox disable buton on first click and enables clicking again', () => {
 test('Button gray when disabled', () => {
   render(<App />);
   const checkbox = screen.getByRole('checkbox', { name: 'Disable Button' });
-  const button = screen.getByRole('button', { name: 'Change to blue' });
+  const button = screen.getByRole('button', { name: 'Change to Midnight Blue' });
 
   fireEvent.click(checkbox);
   expect(button).toHaveStyle({ 'background-color': 'gray' });
   fireEvent.click(checkbox);
-  expect(button).toHaveStyle({ 'background-color': 'red' });
+  expect(button).toHaveStyle({ 'background-color': 'MediumVioletRed' });
   fireEvent.click(button);
   fireEvent.click(checkbox);
   expect(button).toHaveStyle({ 'background-color': 'gray' });
   fireEvent.click(checkbox);
   expect(button).toHaveStyle({
-    'background-color': 'blue'
+    'background-color': 'MidnightBlue'
   });
 });
 
@@ -55,9 +55,9 @@ describe('spaces before camel-case capital letters', () => {
     expect(replaceCamelWithSpaces('Red')).toBe('Red');
   });
   test('Works for one inner capital letter', () => {
-    expect(replaceCamelWithSpaces('MidnightBlue')).toBe('Midnight Blue');
+    expect(replaceCamelWithSpaces('Midnight Blue')).toBe('Midnight Blue');
   });
   test('Works for multiple inner capital letters', () => {
-    expect(replaceCamelWithSpaces('MediumVioletRed')).toBe('Medium Violet Red');
+    expect(replaceCamelWithSpaces('Medium Violet Red')).toBe('Medium Violet Red');
   });
 });
