@@ -1,14 +1,16 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
 import { replaceCamelWithSpaces } from './App';
+import UserEvent from '@testing-library/user-event';
 
-test('button change on click', () => {
+test('button change on click', async () => {
+  const user = UserEvent.setup();
   render(<App />);
   const button = screen.getByRole('button', { name: 'Change to Midnight Blue' });
 
   expect(button).toHaveStyle({ "background-color": "MediumVioletRed" });
 
-  fireEvent.click(button);
+  await user.click(button);
   expect(button).toHaveStyle({ 'background-color': 'MidnightBlue' });
 
   expect(button).toHaveTextContent("Change to Medium Violet Red");
@@ -21,30 +23,33 @@ test('checkbox init', () => {
   expect(checkbox).not.toBeChecked();
 });
 
-test('checkbox disable buton on first click and enables clicking again', () => {
+test('checkbox disable buton on first click and enables clicking again', async () => {
+  const user = UserEvent.setup();
   render(<App />);
   //const checkbox = screen.getByRole('checkbox')
   const checkbox = screen.getByRole('checkbox', { name: 'Disable Button' });
   const button = screen.getByRole('button', { name: 'Change to Midnight Blue' });
 
-  fireEvent.click(checkbox);
+  await user.click(checkbox);
   expect(button).toBeDisabled();
-  fireEvent.click(checkbox);
+  await user.click(checkbox);
   expect(button).toBeEnabled();
 });
-test('Button gray when disabled', () => {
+test('Button gray when disabled', async () => {
+  const user = UserEvent.setup();
+
   render(<App />);
   const checkbox = screen.getByRole('checkbox', { name: 'Disable Button' });
   const button = screen.getByRole('button', { name: 'Change to Midnight Blue' });
 
-  fireEvent.click(checkbox);
+  await user.click(checkbox);
   expect(button).toHaveStyle({ 'background-color': 'gray' });
-  fireEvent.click(checkbox);
+  await user.click(checkbox);
   expect(button).toHaveStyle({ 'background-color': 'MediumVioletRed' });
-  fireEvent.click(button);
-  fireEvent.click(checkbox);
+  await user.click(button);
+  await user.click(checkbox);
   expect(button).toHaveStyle({ 'background-color': 'gray' });
-  fireEvent.click(checkbox);
+  await user.click(checkbox);
   expect(button).toHaveStyle({
     'background-color': 'MidnightBlue'
   });
