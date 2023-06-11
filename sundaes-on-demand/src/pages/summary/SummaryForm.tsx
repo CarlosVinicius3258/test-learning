@@ -7,11 +7,11 @@ import Popover from '../../components/Popover';
 const SummaryForm: React.FC = () => {
   const [termChecked, setTermChecked] = useState<boolean>(false);
   const Checkboxlabel = () => (
-    <Popover content='No ice cream will actually be delivered'>
-      <span>
-        I agreen to <span style={ { color: 'blue' } }>Terms and Conditions</span>
-      </span>
-    </Popover>
+
+    <span>
+      I agree to <Popover content='No ice cream will actually be delivered'><span style={ { color: 'blue' } }>Terms and Conditions</span></Popover>
+    </span>
+
 
   );
 
