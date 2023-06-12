@@ -2,7 +2,7 @@ import React from 'react';
 import { Col } from 'react-bootstrap';
 
 
-interface ScoopOptionsProps {
+interface OptionColProps {
   key: any;
   name: string;
   imagePath: string;
@@ -10,7 +10,7 @@ interface ScoopOptionsProps {
 }
 
 
-function OptionCol({ name, imagePath, optionType, key }: ScoopOptionsProps) {
+function OptionCol({ name, imagePath, optionType, key }: OptionColProps) {
   optionType = optionType.substring(0, optionType.length - 1);
   return (
     <Col key={ key } xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={ { textAlign: 'center' } }>
