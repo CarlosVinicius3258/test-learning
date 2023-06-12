@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import ScoopOptions from './ScoopOptions';
 import { Row } from 'react-bootstrap';
+import OptionCol from './OptionCard';
 
 // import { Container } from './styles';
 interface OptionsProps {
@@ -25,8 +25,8 @@ const Options: React.FC<OptionsProps> = ({ optionType }: OptionsProps) => {
     getOptions();
   }, [optionType]);
 
-  const OptionComponent = optionType === 'scoops' ? ScoopOptions : null;
-  const optionItems = options.map((option) => OptionComponent && <OptionComponent key={ option.name } name={ option.name } imagePath={ option.imagePath } />);
+
+  const optionItems = options.map((option) => OptionCol && <OptionCol key={ option.name } name={ option.name } imagePath={ option.imagePath } optionType={ optionType } />);
   return <Row >
     { optionItems }
   </Row>;
