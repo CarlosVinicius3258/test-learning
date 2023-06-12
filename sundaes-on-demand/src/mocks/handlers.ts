@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-
+import { server } from './server';
 export const handlers = [
   rest.get('http://localhost:3030/scoops', (req, res, ctx) => {
     return res(
@@ -20,3 +20,10 @@ export const handlers = [
     );
   }),
 ];
+
+export const resetWithErrorHandlers = () => {
+  return server.resetHandlers(
+    rest.get('http://localhost:3030/scoops', (req, res, ctx) => res(ctx.status(500))),
+    rest.get('http://localhost:3030/toppings', (req, res, ctx) => res(ctx.status(500)))
+  );
+};
